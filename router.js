@@ -36,6 +36,12 @@ export const initRouter = (node) => {
       action: () =>
         import('./src/login/registerUser'),
     },
+    {
+      path: '/project',
+      component: 'index-project',
+      action: () =>
+        import('./src/project/index-project'),
+    },
     // {
     //   path: '(.*)',
     //   component: 'view-404',
