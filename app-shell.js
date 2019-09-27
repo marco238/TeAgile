@@ -6,11 +6,7 @@ import './header/commonHeader';
 
 class AppShell extends LitElement {
   static get styles() {
-    return css`
-      main {
-        margin-top: 30px;
-      }
-    `;
+    return css``;
   }
 
   static get properties() {

@@ -1,0 +1,11 @@
+.home-container {
+  height: calc(100vh - 40px);
+  width: 100vw;
+
+  button-generic {
+    position: absolute;
+    bottom: 20px;
+    left: 50%;
+    transform: translateX(-50%);
+  }
+}
