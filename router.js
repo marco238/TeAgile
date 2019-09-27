@@ -30,12 +30,12 @@ export const initRouter = (node) => {
       action: () =>
         import('./src/login/loginUser'),
     },
-    // {
-    //   path: '/career',
-    //   component: 'smartup-career-view',
-    //   action: () =>
-    //     import('./views/career/'),
-    // },
+    {
+      path: '/signup',
+      component: 'register-user',
+      action: () =>
+        import('./src/login/registerUser'),
+    },
     // {
     //   path: '(.*)',
     //   component: 'view-404',
