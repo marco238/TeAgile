@@ -49,7 +49,10 @@ class IndexLogin extends LitElement {
               <label for="checkbox"></label>
               <p>Recuérdame</p>
             </div>
-            <button @click=${this.signin}>ENTRAR</button>
+            ${this.loading ?
+              html `<spinner-loader></spinner-loader>` :
+              html`<button @click=${this.signin}>ENTRAR</button>`
+            }
           </div>
         </div>
         <div class="social-login">
