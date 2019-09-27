@@ -18,12 +18,12 @@ export const initRouter = (node) => {
       path: '/login',
       component: 'index-login',
     },
-    // {
-    //   path: '/training',
-    //   component: 'training-view',
-    //   action: () =>
-    //     import('./views/training/'),
-    // },
+    {
+      path: '/project',
+      component: 'create-project',
+      action: () =>
+        import('./src/project/create-project'),
+    },
     // {
     //   path: '/community',
     //   component: 'smartup-community-view',
