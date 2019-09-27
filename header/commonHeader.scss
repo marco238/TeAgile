@@ -1,9 +1,32 @@
 .common-header {
+  position: relative;
   background-color: #fff;
   height: 40px;
   box-shadow: 0 2px 50px rgba(0, 0, 0, 0.075);
+  padding: 0 20px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
 
-  p {
-    margin: 0;
+  .app-logo {
+    display: flex;
+    align-items: center;
+  }
+
+  .app-logo img {
+    width: 40px;
+    margin-right: 5px;
+  }
+
+  .app-logo p {
+    font-weight: 700;
+
+    span:first-child {
+      color: #FFA62E;
+    }
+    
+    span:last-child {
+      color: #00B8BA;
+    }
   }
 }

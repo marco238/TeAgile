@@ -11,17 +11,20 @@ class AppShell extends LitElement {
 
   static get properties() {
     return {
-      appTitle: { type: String }
+      hideHeader: { type: Boolean },
+      path: { type: String }
     };
   }
 
   constructor() {
     super();
+    this.path = window.location.pathname.split('/')[1];
+    this.hideHeader = this.path === 'login' || this.path === 'signup';
   }
 
   render() {
     return html`
-      <common-heaer></common-heaer>
+      ${ this.hideHeader ? '' : html`<common-header></common-header>` }
 
       <main></main>
     `;
