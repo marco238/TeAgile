@@ -2,6 +2,13 @@
 import { html, LitElement, css } from 'lit-element';
 
 class CardItem extends LitElement {
+    static get properties() {
+        return {
+            description: String,
+            title: String,
+            hour: String,
+        }
+    }
     constructor() {
         super();
     }
@@ -12,11 +19,12 @@ class CardItem extends LitElement {
                 background: white;
                 border-radius: 10px;
                 display: flex;
-                justify-content: space-between;
+                justify-content: flex-start;
                 align-items: center;
                 text-align: justify;
                 overflow: hidden;
                 padding: 0 10px;
+                margin-bottom: 10px;
             }
             .hourLeft {
                 height: 70px;
@@ -49,20 +57,10 @@ class CardItem extends LitElement {
     render() {
         return html`
           <div class="containerCard">
-            <p class="hourLeft">3:00 PM</p>
+            <p class="hourLeft">${this.hour}</p>
             <div class="content">
-                <p class="title">Work lunk</p>
-                <p class="description">Lorem Ipsum es simplemente el texto de relleno de las imprentas y
-                    archivos de texto. Lorem Ipsum ha sido el texto de relleno estándar
-                    de las industrias desde el año 1500, cuando un impresor (N. del T.
-                    persona que se dedica a la imprenta) desconocido usó una galería
-                    de textos y los mezcló de tal manera que logró hacer un libro de textos especimen.
-                    No sólo sobrevivió 500 años, sino que tambien ingresó como texto de relleno en
-                    documentos electrónicos, quedando esencialmente igual al original. Fue popularizado
-                    en los 60s con la creación de las hojas "Letraset", las cuales contenian pasajes de
-                    Lorem Ipsum, y más recientemente con software de autoedición,
-                    como por ejemplo Aldus PageMaker, el cual incluye versiones de Lorem Ipsum.
-                </p>
+                <p class="title">${this.title}</p>
+                <p class="description">${this.description}</p>
             </div>
           </div>
         `
