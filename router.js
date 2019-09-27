@@ -1,6 +1,6 @@
 import { Router } from '@vaadin/router';
 
-import './src/login/';
+import './src/home/homeElement';
 
 /**
  * Contains the parent html node
@@ -12,24 +12,24 @@ export const initRouter = (node) => {
   router.setRoutes([
     {
       path: '/',
-      redirect: '/login',
+      redirect: '/home',
     },
     {
-      path: '/login',
-      component: 'index-login',
+      path: '/home',
+      component: 'home-element',
     },
     {
-      path: '/project',
+      path: '/create-project',
       component: 'create-project',
       action: () =>
         import('./src/project/create-project'),
     },
-    // {
-    //   path: '/community',
-    //   component: 'smartup-community-view',
-    //   action: () =>
-    //     import('./views/community/'),
-    // },
+    {
+      path: '/login',
+      component: 'index-login',
+      action: () =>
+        import('./src/login/loginUser'),
+    },
     // {
     //   path: '/career',
     //   component: 'smartup-career-view',

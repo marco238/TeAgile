@@ -24,6 +24,10 @@ class AppShell extends LitElement {
     super();
     this.path = window.location.pathname.split('/')[1];
     this.hideHeader = this.path === 'login' || this.path === 'signup';
+    if(!sessionStorage.getItem('user') && !this.hideHeader) {
+      window.location.href = '/login';
+    }
+    
   }
 
   render() {
