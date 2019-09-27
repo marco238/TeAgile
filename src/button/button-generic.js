@@ -8,7 +8,7 @@ class ButtonGeneric extends LitElement {
             img: String,
             action: String,
             textAlternative: String,
-            backgroundColor: String,
+            backgroundColor: String
         }
     }
 
@@ -16,7 +16,7 @@ class ButtonGeneric extends LitElement {
     super();
     this.backgroundColor = this.backgroundColor || '#f3f3f3';
     this.textAlternative = this.textAlternative || 'Cancelar';
-    this.img = this.img || '/src/imgs/chatbot.png';
+    this.img = this.img || '/src/svgs/close-24px.svg';
   }
 
   static get styles() {
