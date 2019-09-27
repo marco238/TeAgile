@@ -14,7 +14,6 @@ class HomeElement extends LitElement {
 
   connectedCallback() {
     super.connectedCallback();
-    console.log('connected');
     this.shadowRoot.addEventListener('createTask', this._createTask);
   }
 
@@ -24,7 +23,6 @@ class HomeElement extends LitElement {
   }
 
   _createTask() {
-    console.log('create task');
     window.location.href = '/create-project';
   }
 
