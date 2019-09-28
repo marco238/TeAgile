@@ -7,10 +7,12 @@ class CardItem extends LitElement {
             description: String,
             title: String,
             hour: String,
-        }
+            color: String
+        };
     }
     constructor() {
         super();
+        this.color = 'linear-gradient(to right top, #00ffed, #00ede1, #00dbd5, #00c9c8, #00b8ba)';
     }
 
     static get styles() {
@@ -23,21 +25,28 @@ class CardItem extends LitElement {
                 align-items: center;
                 text-align: justify;
                 overflow: hidden;
-                padding: 0 10px;
+                padding: 0 10px 0 5px;
                 margin-bottom: 10px;
+                margin-left: 10px;
+                margin-right: 10px;
             }
             .hourLeft {
-                height: 70px;
-                min-width: 70px;
-                line-height: 70px;
+                height: 80px;
+                min-width: 80px;
+                line-height: 80px;
                 text-align: center;
-                border-radius: 10px;
+                border-radius: 5px;
                 color: white;
-                background: linear-gradient(to right top, #00ffed, #00ede1, #00dbd5, #00c9c8, #00b8ba);
+                margin: 5px 0;
             }
             .content {
-                margin-left: 20px;
-                font-size: 12px;
+                margin-left: 10px;
+                font-size: 16px;
+
+            }
+            .title{
+                margin-top: 8px;
+                margin-bottom: 5px;
             }
 
             .content .description {
@@ -47,6 +56,7 @@ class CardItem extends LitElement {
                 font-size: 10px;
                 overflow: hidden;
                 display: -webkit-box;
+                margin-top: 0;
                 -webkit-line-clamp: 2;
                 -webkit-box-orient: vertical;
             }
@@ -57,7 +67,7 @@ class CardItem extends LitElement {
     render() {
         return html`
           <div class="containerCard">
-            <p class="hourLeft">${this.hour}</p>
+            <p class="hourLeft" style="background: ${this.color}">${this.hour}</p>
             <div class="content">
                 <p class="title">${this.title}</p>
                 <p class="description">${this.description}</p>

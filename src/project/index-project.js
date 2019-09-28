@@ -10,12 +10,49 @@ class IndexProject extends LitElement {
         return {
             loading: Boolean,
             list: Array,
-        }
+        };
     }
     constructor() {
         super();
         this.loading = false;
-        this.list = [{description: 'asdflasjd', title: 'title 1', hour: '3:00 PM'},{description: 'asdflasjd asdflasjd asdflasjd', title: 'title 2', hour: '6:00 PM'}]
+        this.list = [
+            {
+                description: 'I have a special lunch date today for an important deal at work at 3:00 pm These are the most important...',
+                title: 'Breakfast',
+                hour: '10:00 AM',
+                color: 'linear-gradient(to right top, #F869D5, #5650DE)'
+            },
+            {
+                description: 'I have a special lunch date today for an important deal at work at 6:00 pm These are the most important...',
+                title: 'Work lunch',
+                hour: '1:00 PM',
+                color: 'linear-gradient(to right top, #FFA62E, #EA4D2C)'
+            },
+            {
+                description: 'I have a special lunch date today for an important deal at work at 6:00 pm These are the most important...',
+                title: 'Team-building',
+                hour: '3:00 PM',
+                color: 'linear-gradient(to right top, #FF9897, #F650A0)'
+            },
+            {
+                description: 'I have a special lunch date today for an important deal at work at 6:00 pm These are the most important...',
+                title: 'Meeting',
+                hour: '4:00 PM',
+                color: 'linear-gradient(to right top, #6EE2F5, #6454F0)'
+            },
+            {
+                description: 'I have a special lunch date today for an important deal at work at 6:00 pm These are the most important...',
+                title: 'Time to go home',
+                hour: '5:00 PM',
+                color: 'linear-gradient(to right top, #00FFED, #00B8BA)'
+            },
+            {
+                description: 'I have a special lunch date today for an important deal at work at 6:00 pm These are the most important...',
+                title: 'Time to go home',
+                hour: '5:00 PM',
+                color: 'linear-gradient(to right top, #FFCF1B, #FF881B)'
+            }
+        ];
     }
 
     connectedCallback() {
@@ -45,6 +82,7 @@ class IndexProject extends LitElement {
                         description=${item.description}
                         hour=${item.hour}
                         title=${item.title}
+                        color=${item.color}
                     ></card-item>`
                 )}
                 <button-generic
