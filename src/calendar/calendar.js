@@ -20,7 +20,10 @@ class ComponentCalendar extends LitElement {
                 display: flex;
                 align-items: center;
                 white-space: nowrap;
-                height: 80px;
+                height: 100px;
+                width: 95vw;
+                margin: auto;
+                position: relative;
             }
             .container .shadowLeft,.container .shadowRight  { 
 

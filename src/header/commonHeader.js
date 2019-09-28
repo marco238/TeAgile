@@ -14,6 +14,13 @@ class CommonHeader extends LitElement {
     super();
   }
 
+  _openMenu() {
+    this.dispatchEvent(new CustomEvent('open-menu', {
+      bubbles: true,
+      composed: true
+    }));
+  }
+
   render() {
     return html`
       <div class="common-header">
@@ -21,7 +28,7 @@ class CommonHeader extends LitElement {
           <img src="/src/imgs/TeAgile.png" alt="TeAgile Logo">
           <p><span>Te</span><span>Agile</span></p>
         </div>
-        <img src="/src/svgs/menu_logo.svg" alt="Menu Logo">
+        <img @click=${this._openMenu} src="/src/svgs/menu_logo.svg" alt="Menu Logo">
       </div>
     `;
   }

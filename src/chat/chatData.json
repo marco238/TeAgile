@@ -1,0 +1,24 @@
+{
+  "messages": [
+    {
+      "userId": 1,
+      "text": "I really find the subject very interesting. I'm enjoying all my classes."
+    },
+    {
+      "userId": 2,
+      "text": "How do you like your major?"
+    },
+    {
+      "userId": 1,
+      "text": "I'm majoring in Sociology"
+    },
+    {
+      "userId": 2,
+      "text": "Hello! What are you majoring in?"
+    },
+    {
+      "userId": 1,
+      "text": "Hi !!!"
+    }
+  ]
+}

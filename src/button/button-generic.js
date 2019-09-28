@@ -9,7 +9,7 @@ class ButtonGeneric extends LitElement {
             action: String,
             textAlternative: String,
             backgroundColor: String
-        }
+        };
     }
 
   constructor() {
@@ -25,9 +25,8 @@ class ButtonGeneric extends LitElement {
 
   dispatchAction() {
     if(this.action) {
-        console.log('aaaction', this.action);
-          this.dispatchEvent(new CustomEvent(this.action, { bubbles: true, composed: true }));
-        }
+      this.dispatchEvent(new CustomEvent(this.action, { bubbles: true, composed: true }));
+    }
   }
 
   render() {
@@ -35,7 +34,7 @@ class ButtonGeneric extends LitElement {
           <button @click=${this.dispatchAction} style=${`background: ${this.backgroundColor}`}>
               <img src=${this.img} alt=${this.textAlternative}/>
           </button>
-        `
+        `;
   }
 }
 

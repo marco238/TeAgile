@@ -42,6 +42,18 @@ export const initRouter = (node) => {
       action: () =>
         import('./src/project/index-project'),
     },
+    {
+      path: '/chat',
+      component: 'chat-element',
+      action: () =>
+        import('./src/chat/chatElement'),
+    },
+    {
+      path: '/chatbot',
+      component: 'chat-element',
+      action: () =>
+        import('./src/chat/chatElement'),
+    },
     // {
     //   path: '(.*)',
     //   component: 'view-404',
