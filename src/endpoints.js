@@ -5,6 +5,6 @@ const endpoints = {
     project: '/projects', // POST
     getTask: '/tasks', // GET
     createTask: '/tasks', // POST
-    getMeetings: '/tasks', // GET
-    createMeeting: '/tasks', // POST
+    getMeetings: '/mettings', // GET
+    createMeeting: '/mettings', // POST
 }
