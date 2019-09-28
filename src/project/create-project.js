@@ -44,6 +44,7 @@ class NewProject extends LitElement {
             css`
             .containerDetail {
                 position: relative;
+                margin-top: 50px;
             }
             h1 {
                 font-size: 24px;

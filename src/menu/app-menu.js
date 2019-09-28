@@ -39,14 +39,16 @@ class AppMenu extends LitElement {
                 backgroundColor="linear-gradient(135deg, rgb(0, 255, 238), rgb(0, 183, 186)">
               </button-generic>
             </div>
-            <div class="link">
-              <span>Ritual</span>
-              <button-generic
-                action="close-menu"
-                img="/src/svgs/done-all.svg"
-                backgroundColor="linear-gradient(135deg, rgb(110, 227, 245), rgb(100, 84, 240)">
-              </button-generic>
-            </div>
+            <a href="/project">
+              <div class="link">
+                <span>Tasks</span>
+                <button-generic
+                  action="close-menu"
+                  img="/src/svgs/done-all.svg"
+                  backgroundColor="linear-gradient(135deg, rgb(110, 227, 245), rgb(100, 84, 240)">
+                </button-generic>
+              </div>
+            </a>
             <a href="/chat">
               <div class="link">
                 <span>Chat</span>

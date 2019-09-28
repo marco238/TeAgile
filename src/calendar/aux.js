@@ -2,7 +2,7 @@ export const getNumDaysOfMonth = (today = new Date()) => {
     const currentMonth = today.getMonth();
     const currentYear = today.getFullYear();
     const days = new Date(currentYear, currentMonth, 32).getDate();
-    return 32 - days;
+    return 33 - days;
 }
 
 export const months = ["Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec"];

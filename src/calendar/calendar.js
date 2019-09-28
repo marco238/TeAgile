@@ -21,6 +21,9 @@ class ComponentCalendar extends LitElement {
                 align-items: center;
                 white-space: nowrap;
                 height: 100px;
+                width: 95vw;
+                margin: auto;
+                position: relative;
             }
             .container .shadowLeft,.container .shadowRight  { 
 
