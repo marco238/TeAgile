@@ -43,8 +43,7 @@ class ChatElement extends LitElement {
     };
   }
 
-  constructor() {
-    super();
+  updated() {
     this.chatType = window.location.pathname.split('/')[1];
   }
 
@@ -69,9 +68,9 @@ class ChatElement extends LitElement {
               </div>
               <div class="message-sender">
                 <div class="input-box">
-                  <button>
+                  <!-- <button>
                     <img src="/src/svgs/smiley-face.svg" alt="Smiley face">
-                  </button>
+                  </button> -->
                   <input type="text" placeholder="Escribe el mensaje...">
                 </div>
                 <div class="chat-buttons">
