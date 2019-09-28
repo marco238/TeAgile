@@ -3,6 +3,7 @@ import { html, LitElement, css } from 'lit-element';
 import '../calendar/calendar';
 import '../button/button-generic';
 import '../card/card-item';
+import '../spinner/spinner-loader';
 import project_css from './project.scss';
 
 class IndexProject extends LitElement {
@@ -14,8 +15,12 @@ class IndexProject extends LitElement {
     }
     constructor() {
         super();
-        this.loading = false;
-        this.list = [{description: 'asdflasjd', title: 'title 1', hour: '3:00 PM'},{description: 'asdflasjd asdflasjd asdflasjd', title: 'title 2', hour: '6:00 PM'}]
+        this.loading = true;
+        this.list = [];
+    }
+
+    firstUpdated() {
+        // fetch('url').then() realizar llamada al server con el id del proyecto he insertar en this.list
     }
 
     connectedCallback() {
@@ -37,6 +42,9 @@ class IndexProject extends LitElement {
     }
 
     render() {
+        if(this.loading) {
+            return html`<spinner-loader></spinner-loader>`
+        }
         return html`
             <div class="containerProject">
                <component-calendar></component-calendar>

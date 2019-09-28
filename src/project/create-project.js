@@ -26,14 +26,9 @@ class NewProject extends LitElement {
     }
 
     _submitProject() {
-        this.loading = true;
-        const title = this.shadowRoot.querySelector('input[name=title]').value;
-        const description = this.shadowRoot.querySelector('input[name=description]').value;
-        const email = this.shadowRoot.querySelector('input[name=description]').value;
-        // fetch('url', (result) => {
+        // realizar petición a la API
+        // this.lo 'url', (result) => {
         //   if(result.status === 200) {
-        //     sessionStorage.setItem('user', `Basic ${base64.encode(`${email}:${password}`)}`);
-        //     window.location.href = '/';
         //   }
     }
 
