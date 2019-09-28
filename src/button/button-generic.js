@@ -24,8 +24,9 @@ class ButtonGeneric extends LitElement {
   }
 
   dispatchAction() {
-      if(this.action) {
-          this.dispatchEvent(new CustomEvent(this.action));
+    if(this.action) {
+        console.log('aaaction', this.action);
+          this.dispatchEvent(new CustomEvent(this.action, { bubbles: true, composed: true }));
         }
   }
 
