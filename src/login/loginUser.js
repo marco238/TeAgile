@@ -7,7 +7,7 @@ class IndexLogin extends LitElement {
   static get properties() {
     return {
       loading: Boolean,
-    }
+    };
   }
   static get styles() {
     return css_login;
@@ -15,14 +15,28 @@ class IndexLogin extends LitElement {
 
   signin() {
     this.loading = true;
-    const email = this.shadowRoot.querySelector('input[name=email]').value;
+    const email = this.shadowRoot.querySelector('input[name=username]').value;
     const password = this.shadowRoot.querySelector('input[name=password]').value;
-    const base64Password = btoa(password);
-     // fetch('url', (result) => {
-    //   if(result.status === 200) {
-    //     sessionStorage.setItem('user', `Basic ${base64.encode(`${email}:${password}`)}`);
-    //     window.location.href = '/';
-    //   }
+    let url = `http://localhost:3000/users?email=${email}&password=${password}`;
+    fetch(url)
+      .then(response => {
+        return response.json();
+      })
+      .then(data => {
+        const user = {
+          name: data.name,
+          surname: data.surname,
+          id: data.id,
+          email: data.email,
+          password: data.password,
+          projects: data.projects
+        };
+        sessionStorage.setItem('user', JSON.stringify(user));
+        window.location.href = '/';
+      })
+      .catch(e => {
+        console.log('Error: ', e);
+      });
   }
 
   render() {

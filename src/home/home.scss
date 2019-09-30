@@ -2,6 +2,46 @@
   height: calc(100vh - 40px);
   width: 100vw;
 
+  .projects-container {
+    position: relative;
+    padding: 50px 10px;
+    height: calc(100vh - 40px);
+
+    .project-card {
+      position: relative;
+      height: 140px;
+      border-radius: 8px;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: flex-start;
+      background: linear-gradient(45deg, #FFA62E 0%, rgba(87,80,222,0.75) 50%, #00B8BA 100%);
+      box-shadow: 0 10px 60px rgba(0, 0, 0, 0.274);
+      margin-bottom: 20px;
+      padding: 0 20px;
+
+      span {
+        font-size: 30px;
+        font-weight: 900;
+        color: #fff;
+        text-align: center;
+      }
+
+      p {
+        font-size: 14px;
+        color: #fff;
+        width: 80%;
+      }
+
+      .delete-project-icon {
+        position: absolute;
+        right: 0;
+        top: 0;
+        margin: 20px 20px 0 0;
+      }
+    }
+  }
+
   button-generic {
     position: absolute;
     bottom: 20px;

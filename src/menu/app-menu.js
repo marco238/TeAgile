@@ -32,7 +32,7 @@ class AppMenu extends LitElement {
               </div>
             </a>
             <div class="link">
-              <span>Profile</span>
+              <span>Projects</span>
               <button-generic
                 action="close-menu"
                 img="/src/svgs/user.svg"
