@@ -25,7 +25,6 @@ class CommonHeader extends LitElement {
     return html`
       <div class="common-header">
         <div class="app-logo">
-          <img src="/src/imgs/TeAgile.png" alt="TeAgile Logo">
           <p><span>Te</span><span>Agile</span></p>
         </div>
         <img @click=${this._openMenu} src="/src/svgs/menu_logo.svg" alt="Menu Logo">
