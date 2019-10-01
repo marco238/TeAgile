@@ -30,7 +30,7 @@ class HomeElement extends LitElement {
   }
 
   _createTask() {
-    window.location.href = '/create-project';
+    
   }
 
   _openProject(project) {
@@ -67,11 +67,12 @@ class HomeElement extends LitElement {
             </div>
           `)}
         </div>
-        <button-generic
-          backgroundColor="linear-gradient(135deg, rgba(255,166,46,1) 0%, rgba(241,111,92,1) 33%, rgba(246,41,12,1) 63%, rgba(240,47,23,1) 70%, rgba(234,77,44,1) 100%)"
-          img="/src/svgs/add-24px.svg"
-          action="createTask">
-        </button-generic>
+        <a href="/create-project">
+          <button-generic
+            backgroundColor="linear-gradient(135deg, rgba(255,166,46,1) 0%, rgba(241,111,92,1) 33%, rgba(246,41,12,1) 63%, rgba(240,47,23,1) 70%, rgba(234,77,44,1) 100%)"
+            img="/src/svgs/add-24px.svg">
+          </button-generic>
+        </a>
       </div>
         `;
   }

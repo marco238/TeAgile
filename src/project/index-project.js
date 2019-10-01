@@ -26,6 +26,12 @@ class IndexProject extends LitElement {
             'linear-gradient(to right top, #00FFED, #00B8BA)',
             'linear-gradient(to right top, rgb(255, 252, 88), #FFCF1B)'
         ];
+        this.tasks = this._sortTasksByDate(this.project.tasks);
+    }
+
+    _sortTasksByDate(tasks) {
+        const ascendingTasks = tasks.sort((a, b) => new Date(a.startDate) - new Date(b.startDate));
+        return ascendingTasks;
     }
 
     connectedCallback() {
@@ -52,7 +58,7 @@ class IndexProject extends LitElement {
         return html`
             <div class="containerProject">
                <component-calendar></component-calendar>
-               ${this.project.tasks.map(task => html`
+               ${this.tasks.map(task => html`
                     <card-item
                         description=${task.description}
                         hour=${task.startDate.split('T')[1].slice(0, 5)}
