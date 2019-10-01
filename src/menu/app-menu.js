@@ -61,7 +61,7 @@ class AppMenu extends LitElement {
             </a>
             <a href="/chatbot">
               <div class="link">
-                <span>Chat Bot</span>
+                <span>Bot</span>
                 <button-generic
                   action="close-menu"
                   img="/src/svgs/android.svg"

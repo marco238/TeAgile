@@ -10,7 +10,6 @@ class HomeElement extends LitElement {
 
   static get properties() {
     return {
-      userId: { type: Number },
       projects: { type: Array }
     };
   }
@@ -18,26 +17,7 @@ class HomeElement extends LitElement {
   constructor() {
     super();
     this.projects = JSON.parse(sessionStorage.user).projects;
-    let session = JSON.parse(sessionStorage.user);
-    this.userId = session.id;
   }
-
-  // firstUpdated() {
-  //   let url = `http://10.94.32.165:8200/api/v1/projects?userId=${this.userId}`;
-  //   fetch(url)
-  //     .then(response => {
-  //       return response.json();
-  //     })
-  //     .then(data => {
-  //       console.log(data);
-  //       // const user = JSON.parse(sessionStorage.user);
-  //       // user.projects = new Array(data.projects);
-  //       // sessionStorage.setItem('user', JSON.stringify(user));
-  //     })
-  //     .catch(e => {
-  //       console.log('Error: ', e);
-  //     });
-  // }
 
   connectedCallback() {
     super.connectedCallback();
@@ -53,8 +33,26 @@ class HomeElement extends LitElement {
     window.location.href = '/create-project';
   }
 
-  _openTasks() {
-    window.location.href = '/project';
+  _openProject(project) {
+    const url = `http://localhost:3000/tasks/${project.id}`;
+    fetch(url)
+      .then(response => {
+        return response.json();
+      })
+      .then(data => {
+        const currentProject = {
+          id: project.id,
+          user: project.user,
+          name: project.name,
+          description: project.description,
+          tasks: data
+        };
+        sessionStorage.setItem('currentProject', JSON.stringify(currentProject));
+        window.location.href = '/project';
+      })
+      .catch(e => {
+          console.log('Error: ', e);
+      });
   }
 
   render() {
@@ -62,7 +60,7 @@ class HomeElement extends LitElement {
       <div class="home-container">
         <div class="projects-container">
           ${this.projects.map(proj => html`
-            <div class="project-card" @click="${() => this._openTasks()}">
+            <div class="project-card" @click="${() => this._openProject(proj)}">
               <img src="/src/svgs/delete.svg" class="delete-project-icon" alt="Delete Project"></img>
               <span>${proj.name}</span>
               <p>${proj.description}</p>
