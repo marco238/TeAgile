@@ -18,51 +18,13 @@ class IndexProject extends LitElement {
         super();
         this.loading = false;
         this.project = JSON.parse(sessionStorage.currentProject);
-        this.gradients = {
-            purple: 'linear-gradient(to right top, #F869D5, #5650DE)',
-            orange: 'linear-gradient(to right top, #FFA62E, #EA4D2C)',
-            pink: 'linear-gradient(to right top, #FF9897, #F650A0)',
-            blue: 'linear-gradient(to right top, #6EE2F5, #6454F0)',
-            green: 'linear-gradient(to right top, #00FFED, #00B8BA)',
-            yellow: 'linear-gradient(to right top, #FFCF1B, #FF881B)'
-        };
-        this.list = [
-            {
-                description: 'I have a special lunch date today for an important deal at work at 3:00 pm These are the most important...',
-                title: 'Breakfast',
-                hour: '10:00 AM',
-                color: 'linear-gradient(to right top, #F869D5, #5650DE)'
-            },
-            {
-                description: 'I have a special lunch date today for an important deal at work at 6:00 pm These are the most important...',
-                title: 'Work lunch',
-                hour: '1:00 PM',
-                color: 'linear-gradient(to right top, #FFA62E, #EA4D2C)'
-            },
-            {
-                description: 'I have a special lunch date today for an important deal at work at 6:00 pm These are the most important...',
-                title: 'Team-building',
-                hour: '3:00 PM',
-                color: 'linear-gradient(to right top, #FF9897, #F650A0)'
-            },
-            {
-                description: 'I have a special lunch date today for an important deal at work at 6:00 pm These are the most important...',
-                title: 'Meeting',
-                hour: '4:00 PM',
-                color: 'linear-gradient(to right top, #6EE2F5, #6454F0)'
-            },
-            {
-                description: 'I have a special lunch date today for an important deal at work at 6:00 pm These are the most important...',
-                title: 'Time to go home',
-                hour: '5:00 PM',
-                color: 'linear-gradient(to right top, #00FFED, #00B8BA)'
-            },
-            {
-                description: 'I have a special lunch date today for an important deal at work at 6:00 pm These are the most important...',
-                title: 'Time to go home',
-                hour: '5:00 PM',
-                color: 'linear-gradient(to right top, #FFCF1B, #FF881B)'
-            }
+        this.gradients = [
+            'linear-gradient(to right top, #F869D5, #5650DE)',
+            'linear-gradient(to right top, #FFA62E, #EA4D2C)',
+            'linear-gradient(to right top, #FF9897, #F650A0)',
+            'linear-gradient(to right top, #6EE2F5, #6454F0)',
+            'linear-gradient(to right top, #00FFED, #00B8BA)',
+            'linear-gradient(to right top, rgb(255, 252, 88), #FFCF1B)'
         ];
     }
 
@@ -90,12 +52,12 @@ class IndexProject extends LitElement {
         return html`
             <div class="containerProject">
                <component-calendar></component-calendar>
-               ${this.list.map(item => html`
+               ${this.project.tasks.map(task => html`
                     <card-item
-                        description=${item.description}
-                        hour=${item.hour}
-                        title=${item.title}
-                        color=${item.color}
+                        description=${task.description}
+                        hour=${task.startDate.split('T')[1].slice(0, 5)}
+                        title=${task.name}
+                        color=${this.gradients[task.priority - 1]}
                     ></card-item>`
                 )}
                 <button-generic

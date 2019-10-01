@@ -67,7 +67,7 @@ class CardItem extends LitElement {
     render() {
         return html`
           <div class="containerCard">
-            <p class="hourLeft" style="background: ${this.color}">${this.hour}</p>
+            <p class="hourLeft" style="background: ${this.color}">${this.hour} H</p>
             <div class="content">
                 <p class="title">${this.title}</p>
                 <p class="description">${this.description}</p>
