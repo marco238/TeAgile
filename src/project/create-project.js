@@ -18,18 +18,57 @@ class NewProject extends LitElement {
 
     connectedCallback() {
         super.connectedCallback();
-        this.shadowRoot.addEventListener('submitProject', this._submitProject);
+        this.shadowRoot.addEventListener('submitProject', () => this._submitProject());
     }
     disconnectedCallback() {
         super.disconnectedCallback();
-        this.shadowRoot.removeEventListener('submitProject', this._submitProject);
+        this.shadowRoot.removeEventListener('submitProject', () => this._submitProject());
     }
 
     _submitProject() {
-        // realizar petición a la API
-        // this.lo 'url', (result) => {
-        //   if(result.status === 200) {
-        //   }
+        const user = JSON.parse(sessionStorage.user).id;
+        const name = this.shadowRoot.querySelector('input[name=title]').value;
+        const description = this.shadowRoot.querySelector('textarea[name=description]').value;
+        // const email = this.shadowRoot.querySelector('input[name=email]').value;
+
+        const body = {
+            user,
+            name,
+            description
+            // email
+        };
+
+        const requestOptions = { 
+            method: 'POST',
+            headers: {
+                'Accept': 'application/json',
+                'Content-Type': 'application/json'
+            },
+            body: JSON.stringify(body)
+        };
+        
+        let url = 'http://localhost:3000/projects';
+        fetch(url, requestOptions)
+            .then(response => {
+                console.log(response);
+                return response.json();
+            })
+            .then(data => {
+                console.log(data);
+                // const user = {
+                // name: data.name,
+                // surname: data.surname,
+                // id: data.id,
+                // email: data.email,
+                // password: data.password,
+                // projects: data.projects
+                // };
+                // sessionStorage.setItem('user', JSON.stringify(user));
+                // window.location.href = '/';
+            })
+            .catch(e => {
+                console.log('Error: ', e);
+            });
     }
 
     static get styles() {
@@ -123,15 +162,14 @@ class NewProject extends LitElement {
                 </div>
                 <div class="email-container">
                     <label>Invite an user</label>
-                    <input type="email" class="invitation" placeholder="Insert an email..." />
+                    <input type="email" name="email" class="invitation" placeholder="Insert an email..." />
                 </div>
                 ${this.loading ?
                     html`<spinner-loader></spinner-loader>`:
                     html`
                         <div class="buttons-container">
                             <a href="/home">
-                                <button-generic
-                                    action="submitProject">
+                                <button-generic>
                                 </button-generic>
                             </a>
                             <button-generic
